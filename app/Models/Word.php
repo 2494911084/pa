@@ -6,12 +6,12 @@ use Dcat\Admin\Traits\HasDateTimeFormatter;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Project extends Model
+class Word extends Model
 {
     use HasDateTimeFormatter;
 
-    public function word()
+    public function project()
     {
-        return $this->hasOne(Word::class);
+        return $this->belongsTo(Project::class);
     }
 }

@@ -15,4 +15,5 @@ Route::group([
     $router->get('/', 'HomeController@index');
 
     $router->resource('project', 'ProjectController');
+    $router->resource('word', 'WordController');
 });

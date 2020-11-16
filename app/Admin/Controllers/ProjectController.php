@@ -28,12 +28,17 @@ class ProjectController extends AdminController
             $grid->column('mininame');
             $grid->column('work_date', '预计时间')->display(function(){
                 return $this->work_start_date . ' | ' . $this->work_end_date;
-            });
+            })->badge('danger');
             $grid->status()->select([
                 0 => '进行中',
                 1 => '已完成',
             ]);
             $grid->column('created_at');
+
+            $grid->actions(function (Grid\Displayers\Actions $actions) {
+                // append一个操作
+                $actions->append('<a href="/admin/word?project_id='.$actions->getKey().'">文档</a>');
+            });
 
             $grid->filter(function (Grid\Filter $filter) {
                 $filter->equal('id');

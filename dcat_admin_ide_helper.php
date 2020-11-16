@@ -11,6 +11,7 @@ namespace Dcat\Admin {
     use Illuminate\Support\Collection;
 
     /**
+     * @property Grid\Column|Collection status
      * @property Grid\Column|Collection id
      * @property Grid\Column|Collection name
      * @property Grid\Column|Collection type
@@ -48,9 +49,11 @@ namespace Dcat\Admin {
      * @property Grid\Column|Collection mininame
      * @property Grid\Column|Collection work_start_date
      * @property Grid\Column|Collection work_end_date
-     * @property Grid\Column|Collection status
      * @property Grid\Column|Collection email_verified_at
+     * @property Grid\Column|Collection project_id
+     * @property Grid\Column|Collection word_url
      *
+     * @method Grid\Column|Collection status(string $label = null)
      * @method Grid\Column|Collection id(string $label = null)
      * @method Grid\Column|Collection name(string $label = null)
      * @method Grid\Column|Collection type(string $label = null)
@@ -88,14 +91,16 @@ namespace Dcat\Admin {
      * @method Grid\Column|Collection mininame(string $label = null)
      * @method Grid\Column|Collection work_start_date(string $label = null)
      * @method Grid\Column|Collection work_end_date(string $label = null)
-     * @method Grid\Column|Collection status(string $label = null)
      * @method Grid\Column|Collection email_verified_at(string $label = null)
+     * @method Grid\Column|Collection project_id(string $label = null)
+     * @method Grid\Column|Collection word_url(string $label = null)
      */
     class Grid {}
 
     class MiniGrid extends Grid {}
 
     /**
+     * @property Show\Field|Collection status
      * @property Show\Field|Collection id
      * @property Show\Field|Collection name
      * @property Show\Field|Collection type
@@ -133,9 +138,11 @@ namespace Dcat\Admin {
      * @property Show\Field|Collection mininame
      * @property Show\Field|Collection work_start_date
      * @property Show\Field|Collection work_end_date
-     * @property Show\Field|Collection status
      * @property Show\Field|Collection email_verified_at
+     * @property Show\Field|Collection project_id
+     * @property Show\Field|Collection word_url
      *
+     * @method Show\Field|Collection status(string $label = null)
      * @method Show\Field|Collection id(string $label = null)
      * @method Show\Field|Collection name(string $label = null)
      * @method Show\Field|Collection type(string $label = null)
@@ -173,8 +180,9 @@ namespace Dcat\Admin {
      * @method Show\Field|Collection mininame(string $label = null)
      * @method Show\Field|Collection work_start_date(string $label = null)
      * @method Show\Field|Collection work_end_date(string $label = null)
-     * @method Show\Field|Collection status(string $label = null)
      * @method Show\Field|Collection email_verified_at(string $label = null)
+     * @method Show\Field|Collection project_id(string $label = null)
+     * @method Show\Field|Collection word_url(string $label = null)
      */
     class Show {}
 
