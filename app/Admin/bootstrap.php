@@ -49,3 +49,5 @@ Admin::menu(function (Menu $menu) {
         ],
     ]);
 });
+
+admin_js(['js/admin.js']);
