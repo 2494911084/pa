@@ -17,8 +17,10 @@ class CreateProjectsTable extends Migration
             $table->id();
             $table->string('name')->comment('名称');
             $table->string('mininame')->nullable()->comment('简称');
-            $table->string('work_start_date')->nullable()->comment('开始时间');
-            $table->string('work_end_date')->nullable()->comment('结束时间');
+            $table->string('date_length')->nullable()->comment('时长');
+            $table->string('work_end_date')->nullable()->comment('交付日期');
+            $table->text('xuqiu')->nullable()->comment('需求');
+            $table->string('jindu')->nullable()->comment('进度');
             $table->string('status')->default(0)->comment('状态0进行中1已完成');
             $table->timestamps();
         });

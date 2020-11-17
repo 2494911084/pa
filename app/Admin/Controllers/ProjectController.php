@@ -7,9 +7,15 @@ use Dcat\Admin\Form;
 use Dcat\Admin\Grid;
 use Dcat\Admin\Show;
 use Dcat\Admin\Http\Controllers\AdminController;
+use Dcat\Admin\Widgets\Card;
+use Dcat\Admin\Widgets\Markdown;
+use App\Admin\Controllers\PreviewCode;
+use Dcat\Admin\Layout\Content;
 
 class ProjectController extends AdminController
 {
+    use PreviewCode;
+
     /**
      * Make a grid builder.
      *
@@ -26,9 +32,18 @@ class ProjectController extends AdminController
             $grid->column('id')->sortable();
             $grid->column('name');
             $grid->column('mininame');
-            $grid->column('work_date', '预计时间')->display(function(){
-                return $this->work_start_date . ' | ' . $this->work_end_date;
-            })->badge('danger');
+            $grid->column('date_length');
+            $grid->xuqiu
+            ->display('查看') // 设置按钮名称
+            ->modal(function ($modal) {
+                // 设置弹窗标题
+                $modal->title($this->name);
+
+                return new Card(null, $this->xuqiu);
+            });
+
+            $grid->jindu->progressBar();
+            $grid->column('work_end_date');
             $grid->status()->select([
                 0 => '进行中',
                 1 => '已完成',
@@ -81,8 +96,11 @@ class ProjectController extends AdminController
             $form->display('id');
             $form->text('name')->required();
             $form->text('mininame')->required();
-            $form->dateRange('work_start_date', 'work_end_date', '项目周期')->required();
+            $form->text('date_length');
+            $form->date('work_end_date')->required();
+            $form->slider('jindu')->options(['max' => 100, 'min' => 0, 'step' => 1, 'postfix' => '%']);
             $form->select('status')->options([0=>'进行中', 1=>'已完成'])->required();
+            $form->editor('xuqiu');
 
             $form->display('created_at');
             $form->display('updated_at');

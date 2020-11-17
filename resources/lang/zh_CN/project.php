@@ -7,8 +7,10 @@ return [
     'fields' => [
         'name' => '名称',
         'mininame' => '简称',
-        'work_start_date' => '开始时间',
-        'work_end_date' => '结束时间',
+        'date_length' => '时长',
+        'work_end_date' => '交付日期',
+        'xuqiu' => '需求',
+        'jindu' => '进度',
         'status' => '状态',
     ],
     'options' => [
