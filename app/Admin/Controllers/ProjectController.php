@@ -47,7 +47,16 @@ class ProjectController extends AdminController
             $grid->status()->select([
                 0 => '进行中',
                 1 => '已完成',
-            ]);
+            ], true);
+
+            $grid->column('jjdj', '紧急程度')->display(function(){
+                if ($this->status == 0) {
+                    return '<span class="badge" style="background:#ea5455">紧急</span>';
+                } else {
+                    return '<span class="badge" style="background:#21b978">正常</span>';
+                }
+            });
+
             $grid->column('created_at');
 
             $grid->actions(function (Grid\Displayers\Actions $actions) {

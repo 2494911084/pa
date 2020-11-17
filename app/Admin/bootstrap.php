@@ -26,6 +26,9 @@ use Dcat\Admin\Layout\Menu;
  *
  */
 
+
+// admin_js(['js/admin.js']);
+Admin::script("$('input').attr('autocomplete','off')");
  ## 动态菜单添加
 Admin::menu(function (Menu $menu) {
     $menu->add([
@@ -49,5 +52,3 @@ Admin::menu(function (Menu $menu) {
         ],
     ]);
 });
-
-admin_js(['js/admin.js']);
